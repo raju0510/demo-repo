@@ -10,15 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class RetriveRepoInfo {
+public class GithubRepoStatistics {
 
     @Autowired
     RemoteRepoInfoService repoInfoService;
-    @GetMapping("/status")
-    public String status() {
-        return "It Works!";
-    }
-
     @GetMapping("/repo-info")
     public List<Item> retriveReopInfo() {
         return repoInfoService.retriveReopInfo();

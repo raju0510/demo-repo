@@ -42,11 +42,9 @@ public class RemoteRepoInfoServiceImpl implements RemoteRepoInfoService {
      */
     private  void saveResult(Repository_Info_Data repo_data) {
 
-        List<Repository_Info_Entity> repoentityList = repo_data.getItems().
+        List<Repository_Info_Entity> repoentityList  = repo_data.getItems().
                 stream()
-                .map(new Function<Item, Repository_Info_Entity>() {
-                    @Override
-                    public Repository_Info_Entity apply(Item item) {
+                .map(item -> {
                         Repository_Info_Entity repositoryInfoEntity = new Repository_Info_Entity();
                         repositoryInfoEntity.setFull_name(item.getFull_name());
                         repositoryInfoEntity.setDescription(item.getDescription());
@@ -56,19 +54,11 @@ public class RemoteRepoInfoServiceImpl implements RemoteRepoInfoService {
 
                         return repositoryInfoEntity;
                     }
-                }).toList();
+                )
+                .filter(item -> !userRepository.findByFullName(item.getFull_name()).isPresent())
+                .collect(Collectors.toList());
 
-        log.info("======================================");
-        log.info("entity list to save {}",repoentityList);
-
-
-        List<Repository_Info_Entity> savedList = (List<Repository_Info_Entity>) userRepository.saveAll
-                (
-                    repoentityList.stream()
-                    .filter(entity -> !userRepository.findByFullName(entity.getFull_name()).isPresent())
-                    .collect(Collectors.toList())
-                );
-        log.info("======================================");
-        log.info("saved list ",savedList);
+         userRepository.saveAll(repoentityList);
+        log.info("saved list ",repoentityList);
     }
 }
