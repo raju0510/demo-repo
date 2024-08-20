@@ -1,0 +1,12 @@
+com\org\service\RemoteRepoInfoService.class
+com\org\service\RemoteRepoInfoServiceImpl$1.class
+com\org\DemoProjectApplication.class
+com\org\persist\Repository_Info_Entity.class
+com\org\data\Root.class
+com\org\data\Repository_Info_Data.class
+com\org\repository\UserRepository.class
+com\org\controllers\RetriveRepoInfo.class
+com\org\data\Owner.class
+com\org\service\RemoteRepoInfoServiceImpl.class
+com\org\config\WebClientConfiguration.class
+com\org\data\Item.class
