@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.org</groupId>
-	<artifactId>demo-project</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>github-api-service</artifactId>
+	<version>1.0</version>
 	<name>demo-project</name>
 	<description>Demo project consume github API</description>
 	<url/>
