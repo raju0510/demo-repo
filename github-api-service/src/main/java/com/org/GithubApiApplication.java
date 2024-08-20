@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
 @SpringBootApplication
-public class DemoProjectApplication {
+public class GithubApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoProjectApplication.class, args);
+		SpringApplication.run(GithubApiApplication.class, args);
 	}
 
 }
